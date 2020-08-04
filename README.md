@@ -1,4 +1,6 @@
 # Rapid Exfil
+Gather intel on a target machine with physical access quick AF.
+
 The goals of this project:
 - Grab as much data as possible as quickly as possible from a Windows machine
 - Dead simple batch file that anyone can modify
@@ -25,6 +27,7 @@ Here's a brief summary
 - File associations
 - Full directory tree listings *(disabled by default for speed)*
 - Browser profiles *(disabled by default for speed)*
+- *and more, view the code to see it all* 
 
 ## How fast is it?
 It depends.
