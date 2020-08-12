@@ -1,5 +1,5 @@
 # Rapid Exfil
-Gather intel on a target machine with physical access quick AF.
+Proof of Concept - Gather intel on a target machine with physical access in seconds.
 
 The goals of this project:
 - Grab as much data as possible as quickly as possible from a Windows machine
@@ -12,11 +12,8 @@ The goals of this project:
 1. Ask permission (hoping for forgiveness instead may result in prison)
 2. Copy `RapidEx.cmd` to a USB drive
 3. Insert USB into target Windows machine
-4. Double-click `RapidEx.cmd` in Explorer (or single-click if the system was configured by masochists)
+4. Double-click `RapidEx.cmd`
 5. Intel will be saved in `%COMPUTERNAME%` on the USB drive.
-
-In order to keep the code as clean and hackable by noobs as possible, there are no command line parameters, which can reduce readbility.
-If you want to do something specific, or enable something that is disabled by default, *EDIT THE CODE, IT'S DESIGNED TO BE EASY AF*.
 
 ## What data does it gather?
 Here's a brief summary
@@ -25,11 +22,6 @@ Here's a brief summary
 - List of installed / running programs
 - List of users
 - File associations
+- Browser profiles including history, password files etc
 - Full directory tree listings *(disabled by default for speed)*
-- Browser profiles *(disabled by default for speed)*
-- *and more, view the code to see it all* 
-
-## How fast is it?
-It depends.
-
-With default settings, it runs in about 3 seconds on my machine. If I enable everything, it will take around 5 minutes.
+- *and more, view the code to see it all*
