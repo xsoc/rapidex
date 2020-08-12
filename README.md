@@ -1,5 +1,5 @@
 # Rapid Exfil
-Proof of Concept - Gather intel on a target machine with physical access in seconds.
+Proof of Concept - Gather intel on an unlocked target machine with physical access in seconds.
 
 The goals of this project:
 - Grab as much data as possible as quickly as possible from a Windows machine
@@ -14,6 +14,7 @@ The goals of this project:
 3. Insert USB into target Windows machine
 4. Double-click `RapidEx.cmd`
 5. Intel will be saved in `%COMPUTERNAME%` on the USB drive.
+6. Run
 
 ## What data does it gather?
 Here's a brief summary
